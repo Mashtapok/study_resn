@@ -10,7 +10,10 @@ function onFileChange() {
     let result = '';
 
     const formattedArray = replaceDotWithComa(splitStringToArray(fr.result.trim()))
-    result = formattedArray.reduce((accum, value, index) => accum += `${index + 1} ${value}\n`, '')
+    result = formattedArray.reduce((accum, value, index) => {
+      if (index >= 360) return accum;
+      return accum += `${index + 1} ${value}\n`
+    }, '')
 
     textToFile (result, 'file.txt')
     errorField.textContent = 'Проверьте скачанный файл перед использованием'
