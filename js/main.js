@@ -11,12 +11,13 @@ function onFileChange() {
 
     const formattedArray = replaceDotWithComa(splitStringToArray(fr.result.trim()))
     result = formattedArray.reduce((accum, value, index) => {
-      if (index >= 360) return accum;
-      return accum += `${index + 1} ${value}\n`
+      if (index === 0) return accum += `${index} ${value}`
+
+      return accum += `\r\n${index} ${value}`
     }, '')
 
-    textToFile (result, 'file.txt')
-    errorField.textContent = 'Проверьте скачанный файл перед использованием'
+    textToFile(result, 'file.txt')
+    errorField.textContent = 'Проверьте скачанный файл перед использованием. Если "Ангел" выдаёт ошибку, попробуйте нажать на кнопку "Очистить окно ввода" перед загрузкой файла'
   }
 
   fr.onerror = function () {
