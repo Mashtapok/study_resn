@@ -1,0 +1,17 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.main {
+  padding: 20px 40px;
+}
+
+#error {
+  padding: 15px 0;
+  color: cornflowerblue;
+}
